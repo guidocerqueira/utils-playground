@@ -6,10 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["axios", "viacep", "promises"],
   "author": "Guido Cerqueira",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guidocerqueira/utils-playground.git"
   }
 }
