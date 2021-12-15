@@ -1,0 +1,15 @@
+{
+  "name": "utils-playground",
+  "version": "1.0.0",
+  "description": "A simple library to practice asynchronous programming",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Guido Cerqueira",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
