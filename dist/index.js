@@ -33,10 +33,29 @@ const getStateFromZipcode = async (zipcode) => {
         }
     });
 
-    return await city;
+    return city;
+}
+
+const getPackageDescriptionNpm = async (package) => {
+    const description = new Promise(async (resolve, reject) => {
+        try {
+            if (!package) {
+                throw new Error('O nome do pacote é obrigatório');
+            }
+
+            const { data: { description } } = await axios.get(`https://registry.npmjs.org/${package}`);
+
+            return resolve(description);
+        } catch (error) {
+            return reject(error);
+        }
+    });
+
+    return description;
 }
 
 module.exports = {
     getCityFromZipcode,
-    getStateFromZipcode
+    getStateFromZipcode,
+    getPackageDescriptionNpm
 }
