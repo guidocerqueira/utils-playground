@@ -25,9 +25,9 @@ const getStateFromZipcode = async (zipcode) => {
                 throw new Error('O Cep é obrigatório');
             }
 
-            const { data: { estado } } = await axios.get(`https://viacep.com.br/ws/${zipcode.replace(/[^0-9]/g, '')}/json/`);
+            const { data: { uf } } = await axios.get(`https://viacep.com.br/ws/${zipcode.replace(/[^0-9]/g, '')}/json/`);
 
-            return resolve(estado);
+            return resolve(uf);
         } catch (error) {
             return reject(error);
         }
