@@ -5,6 +5,23 @@
 ```javascript
 const { getCityFromZipcode, getStateFromZipcode } = require("utils-playground")
 
+buscarEndereco("01001000")
+    .then((a) => console.log(a))
+    .catch((a) => console.log(a.message))
+
+// {
+//   "cep": "01001-000",
+//   "logradouro": "Praça da Sé",
+//   "complemento": "lado ímpar",
+//   "bairro": "Sé",
+//   "localidade": "São Paulo",
+//   "uf": "SP",
+//   "ibge": "3550308",
+//   "gia": "1004",
+//   "ddd": "11",
+//   "siafi": "7107"
+// }
+
 getCityFromZipcode("01001000")
     .then((a) => console.log(a))
     .catch((a) => console.log(a.message))

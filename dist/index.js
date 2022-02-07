@@ -92,6 +92,24 @@ const detalharPokemon = async (idOuNome) => {
     return pokemon;
 }
 
+const buscarEndereco = async (zipcode) => {
+    const address = new Promise(async (resolve, reject) => {
+        try {
+            if (!zipcode) {
+                throw new Error('O Cep é obrigatório');
+            }
+
+            const { data } = await axios.get(`https://viacep.com.br/ws/${zipcode.replace(/[^0-9]/g, '')}/json/`);
+
+            return resolve(data);
+        } catch (error) {
+            return reject(error);
+        }
+    });
+
+    return address;
+}
+
 module.exports = {
     getCityFromZipcode,
     getStateFromZipcode,
