@@ -54,8 +54,48 @@ const getPackageDescriptionNpm = async (package) => {
     return description;
 }
 
+const listarPokemons = async (pagina) => {
+    const pokemons = new Promise(async (resolve, reject) => {
+        try {
+            const offset = pagina || pagina > 1 ? (pagina - 1) * 10 : 0;
+            const pg = pagina ?? 1;
+
+            const { data: { results } } = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=10`);
+
+            return resolve({
+                pagina: pg,
+                results
+            });
+        } catch (error) {
+            return reject(error);
+        }
+    });
+
+    return pokemons;
+}
+
+const detalharPokemon = async (idOuNome) => {
+    const pokemon = new Promise(async (resolve, reject) => {
+        try {
+            if (!idOuNome) {
+                throw new Error('O id ou o nome do pokemon é obrigatório');
+            }
+
+            const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${offset}`);
+
+            return resolve(data);
+        } catch (error) {
+            return reject(error);
+        }
+    });
+
+    return pokemon;
+}
+
 module.exports = {
     getCityFromZipcode,
     getStateFromZipcode,
-    getPackageDescriptionNpm
+    getPackageDescriptionNpm,
+    listarPokemons,
+    detalharPokemon
 }
