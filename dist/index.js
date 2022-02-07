@@ -115,5 +115,6 @@ module.exports = {
     getStateFromZipcode,
     getPackageDescriptionNpm,
     listarPokemons,
-    detalharPokemon
+    detalharPokemon,
+    buscarEndereco
 }
