@@ -81,7 +81,7 @@ const detalharPokemon = async (idOuNome) => {
                 throw new Error('O id ou o nome do pokemon é obrigatório');
             }
 
-            const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${offset}`);
+            const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${idOuNome}`);
 
             return resolve(data);
         } catch (error) {
